@@ -14,6 +14,7 @@ This repository is the public technical brief for ABYSS. Its purpose is to make 
 - User model: `internal multi-role operations + student self-service portal`
 - Stack: `React`, `Vite`, `Express`, `PostgreSQL`
 - Runtime support: `JWT auth`, `RBAC`, `workers`, `PM2`, `Nginx/VPS`
+- Expansion track: `tenant bootstrap`, `lead-to-student lifecycle`, `persistent SGC analytics`
 - Review model: `public technical brief + private cleaned source review on request`
 
 ## What ABYSS does
@@ -106,6 +107,25 @@ This matters because serious software is not defined only by how many screens it
 
 See [Production Hardening](./docs/production-hardening.md).
 
+## Platform expansion status
+
+ABYSS is no longer only a broad operational runtime. It also has a verifiable platform-expansion track that is already visible in the working system and in the technical planning produced around it.
+
+What is publicly stated here is limited to what can be defended from the runtime and current documentation:
+
+- config-driven tenant and country bootstrap already exists through runtime resolution and tenant packs
+- a second tenant pack for `JJR Solutions` is already modeled as part of the expansion path
+- a unified customer lifecycle timeline exists across lead, communication, enrollment, payment, and certification events
+- the SGC layer already includes persistent KPI snapshots, scheduled materialization, and trend-oriented read APIs
+- strategic specifications already exist for next-step domains such as `WhatsApp`, external payments, customer lifecycle visibility, and documentation prioritization
+
+Important precision:
+
+- this brief does **not** claim that every part of the multi-tenant platformization path is fully generalized and closed
+- the defendable claim is stronger and more honest: ABYSS already has a real expansion base, a second tenant modeled, a lifecycle review surface, and an analytics persistence layer growing on top of the live product
+
+See [Platform Expansion Status](./docs/platform-expansion-status.md), [Lifecycle Lead to Student](./docs/lifecycle-lead-student.md), [SGC Analytics Persistence](./docs/sgc-analytics-persistence.md), and the [Prompt Library](./prompts/README.md).
+
 ## Architecture summary
 
 The active ABYSS runtime follows a production-oriented full-stack architecture:
@@ -164,10 +184,14 @@ If you are reviewing ABYSS:
 1. Read this README as the system brief.
 2. Review [Architecture](./docs/architecture.md).
 3. Review [Module Map](./docs/module-map.md).
-4. Review [Role Model](./docs/role-model.md).
-5. Review [Visual Surface](./docs/visual-surface.md).
-6. Review [Production Hardening](./docs/production-hardening.md).
-7. Review [Publication Boundary](./docs/publication-boundary.md).
+4. Review [Platform Expansion Status](./docs/platform-expansion-status.md).
+5. Review [Lifecycle Lead to Student](./docs/lifecycle-lead-student.md).
+6. Review [SGC Analytics Persistence](./docs/sgc-analytics-persistence.md).
+7. Review the [Prompt Library](./prompts/README.md).
+8. Review [Role Model](./docs/role-model.md).
+9. Review [Visual Surface](./docs/visual-surface.md).
+10. Review [Production Hardening](./docs/production-hardening.md).
+11. Review [Publication Boundary](./docs/publication-boundary.md).
 
 ## Review access
 
@@ -182,4 +206,4 @@ Contact:
 
 - This repository is a technical brief and due-diligence layer for ABYSS.
 - It is not an open-source release of the production implementation.
-- See [Architecture](./docs/architecture.md), [Module Map](./docs/module-map.md), [Role Model](./docs/role-model.md), [Visual Surface](./docs/visual-surface.md), [Production Hardening](./docs/production-hardening.md), [Publication Boundary](./docs/publication-boundary.md), and [Closeout](./docs/closeout.md).
+- See [Architecture](./docs/architecture.md), [Module Map](./docs/module-map.md), [Platform Expansion Status](./docs/platform-expansion-status.md), [Lifecycle Lead to Student](./docs/lifecycle-lead-student.md), [SGC Analytics Persistence](./docs/sgc-analytics-persistence.md), the [Prompt Library](./prompts/README.md), [Role Model](./docs/role-model.md), [Visual Surface](./docs/visual-surface.md), [Production Hardening](./docs/production-hardening.md), [Publication Boundary](./docs/publication-boundary.md), and [Closeout](./docs/closeout.md).

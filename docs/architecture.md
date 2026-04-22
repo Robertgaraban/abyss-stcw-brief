@@ -201,3 +201,20 @@ The public framing is:
 - further school/country scaling is a platformization path built on top of a functioning core, not a substitute for one
 
 That distinction matters because it preserves technical honesty without underselling the maturity that already exists.
+
+## Verified expansion path
+
+As of `2026-04-22`, the runtime also shows a concrete next-layer platform direction:
+
+- configuration-based tenant and country bootstrap already exists
+- a second tenant pack is already modeled
+- customer lifecycle aggregation already spans lead, communication, enrollment, payment, and certification events
+- the SGC module already persists analytical snapshots and exposes trend-oriented read APIs
+
+The correct technical reading is not “fully generalized multi-tenant platform already complete”. The correct reading is stronger and more useful:
+
+- the live product already has the operating depth
+- the platformization work is already visible in runtime structure and supporting artifacts
+- expansion is happening on top of a functioning SaaS core, not instead of one
+
+See [Platform Expansion Status](./platform-expansion-status.md), [Lifecycle Lead to Student](./lifecycle-lead-student.md), and [SGC Analytics Persistence](./sgc-analytics-persistence.md).
