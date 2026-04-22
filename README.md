@@ -110,26 +110,32 @@ See [Production Hardening](./docs/production-hardening.md).
 
 The active ABYSS runtime follows a production-oriented full-stack architecture:
 
-- `React SPA` frontend
-- `Express API` backend
-- `PostgreSQL` operational database
-- workers for communications and scheduled jobs
-- JWT-based authentication and RBAC
-- VPS-oriented backend operations with separate app delivery
+- `React 18 + Vite` frontend written in `JavaScript / JSX`
+- `Tailwind CSS`, `Radix UI`, `Framer Motion`, and charting/UI libraries in the browser layer
+- client integration layer in `JavaScript` using `fetch`, `sendBeacon`, and service-based API access under same-origin `/api`
+- `Node.js + Express` backend written in `JavaScript`, organized by routes, services, middleware, workers, and migrations
+- `PostgreSQL` operational database accessed from Node through the `pg` driver and SQL-based schema/migration flows
+- background workers in `Node.js` (`.js` / `.mjs`) for communications, reminders, scheduled jobs, and document-related processing
+- JWT-based authentication, RBAC, and route-level permission checks
+- `Socket.IO` real-time layer over `/ws`, backed by PostgreSQL `LISTEN / NOTIFY` for event propagation
+- VPS-oriented backend operations with `Nginx`, `PM2`, separate app delivery, and production smoke/deploy tooling
 
 High-level runtime view:
 
 ```mermaid
 flowchart TD
-    A["Users"] --> B["React SPA"]
-    B --> C["JWT / RBAC"]
-    B --> D["Operational Modules"]
-    D --> E["Leads / Students / Courses"]
-    D --> F["Certifications / Billing / Reports"]
-    D --> G["Communications / Portal / SGC"]
-    B --> H["Express API"]
-    H --> I["PostgreSQL"]
-    H --> J["Workers / Queues / Automations"]
+    A["Users"] --> B["Browser"]
+    B --> C["React 18 + Vite SPA<br/>JavaScript / JSX"]
+    C --> D["UI Layer<br/>Tailwind CSS + Radix UI + Framer Motion"]
+    C --> E["Client Services<br/>fetch + sendBeacon + same-origin /api"]
+    E -->|HTTPS + JSON + JWT / cookies| F["Node.js + Express API<br/>JavaScript"]
+    F --> G["Middleware Layer<br/>Auth + RBAC + route guards"]
+    G --> H["Business Services<br/>students, courses, billing, certifications, SGC"]
+    H -->|SQL via pg| I["PostgreSQL"]
+    H --> J["Node.js Workers<br/>communications, reminders, scheduled jobs"]
+    I -->|LISTEN / NOTIFY| K["Socket.IO /ws Real-time Layer"]
+    K -->|WebSocket + JWT| C
+    F --> L["Nginx + PM2 + VPS Delivery"]
 ```
 
 See [Architecture](./docs/architecture.md).
