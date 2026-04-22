@@ -2,45 +2,54 @@
 
 ## Documented module inventory
 
-The current documented module surface includes:
+This public status map is aligned to the current ABYSS planning and audit material, not to older index documents that lag behind module closures and production hardening.
 
-| ID | Module | Status |
-|----|--------|--------|
-| 00 | Dashboard | Operational |
-| 01 | Leads | Active |
-| 02 | Students | Active |
-| 03 | Courses | Active |
-| 04 | Venue Resources | In progress |
-| 05 | Career Plans | Active |
-| 06 | Career Packs | Active |
-| 07 | Academic Management | Active |
-| 08 | Technical Support | Active |
-| 09 | Certifications | Active |
-| 10 | Invoicing | Active |
-| 11 | Communications | In progress |
-| 12 | Tasks | In progress |
-| 13 | Reports | Pending / evolving |
-| 14 | Users and Team | Active |
-| 15 | Settings and Configuration | Active |
-| 16 | Student Portal | Active |
-| 18 | Quality and SGC | MVP / in progress |
+| ID | Module | Status | Evidence |
+|----|--------|--------|----------|
+| 00 | Dashboard | Operational | Audited and closed |
+| 01 | Leads | Active | Broad production use |
+| 02 | Students | Active | Broad production use |
+| 03 | Courses | Active | Mature runtime and materials flow |
+| 04 | Venue Resources | Active | Calendar and instructor/resource coverage |
+| 05 | Career Plans | Operational | Functional closure documented |
+| 06 | Career Packs | Operational | Functional closure documented |
+| 07 | Academic Management | Active | Attendance, evaluation, records |
+| 08 | Technical Support | Active | Tickets, assignment, comments |
+| 09 | Certifications | Operational | Generation and verification flow live |
+| 10 | Invoicing | Operational | Billing and verification flow live |
+| 11 | Communications | Operational | Workers, bulk actions, monitoring, health |
+| 12 | Tasks | Operational | CRUD, Kanban, widgets, automation |
+| 13 | Reports | Operational | Reporting, KPIs, scheduled reports |
+| 14 | Users and Team | Operational | RBAC and permissions matrix |
+| 15 | Settings and Configuration | Operational | Security, integrations, privacy, profile |
+| 16 | Student Portal | Active / improving | Broad coverage with mobile-first hardening |
+| 18 | Quality and SGC | Operational | Documentary phase complete, audited |
 
 ## What this proves
 
-This is not a narrow CRM.
-
-The runtime covers multiple connected domains:
+ABYSS is not a narrow commercial front end. The runtime covers multiple connected domains:
 
 - commercial pipeline
+- student lifecycle
 - academic operations
-- student operations
 - certifications
-- communications
 - billing
+- communications
+- reporting
 - internal administration
+- student self-service
 - quality and compliance
 
 That breadth is one of the strongest signals in the project.
+
+## Operational evidence behind the map
+
+The application shell mounts a broad RBAC-governed module inventory, and the wider runtime includes public and self-service flows such as portal access and verification routes. The system is therefore deeper than a public module list alone:
+
+- admin modules are mounted behind permissions
+- student portal has dedicated functional coverage
+- reporting, communications, invoicing, and SGC are integrated into the same runtime
+- the module surface is backed by backend services, workers, migrations, and operational docs
 
 ## Important constraint
 

@@ -2,7 +2,7 @@
 
 ## Why a boundary is necessary
 
-The active `CRM-STCW` tree mixes application code with real operational artifacts.
+The active ABYSS production tree mixes application code with real operational artifacts.
 
 Examples of material that should not be part of a public repository include:
 
@@ -12,7 +12,8 @@ Examples of material that should not be part of a public repository include:
 - backups
 - invoice PDFs and billing artifacts
 - generated documents
-- production incident material with operational detail
+- raw incident material with operational detail
+- deployment-sensitive tooling and runbooks
 - local build output and installed dependencies
 
 ## Publicly appropriate
@@ -22,7 +23,8 @@ For a public repository, what is appropriate is:
 - system description
 - architecture summary
 - module inventory
-- honest description of platform direction
+- curated production-hardening summary
+- technically honest product framing
 - controlled review policy
 
 ## Not publicly appropriate
@@ -32,11 +34,12 @@ What is not appropriate is:
 - open publication of the active production tree
 - partial dumps from the working data layer
 - screenshots or exports with sensitive business data
+- raw post-mortems with internal operational wiring
 - release of deployment-sensitive tooling without curation
 
 ## Correct repository model
 
-The correct model for this project is:
+The correct model for ABYSS is:
 
 - `public brief`
 - `private cleaned source repo`

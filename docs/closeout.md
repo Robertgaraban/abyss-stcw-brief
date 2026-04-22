@@ -25,4 +25,4 @@ It should not be treated publicly as:
 
 ## Rule before moving on
 
-Do not publish the raw `CRM-STCW` directory directly.
+Do not publish the raw operational tree directly.

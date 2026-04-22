@@ -1,38 +1,50 @@
 # ABYSS / STCW Technical Brief
 
-ABYSS is the platform direction built from the active `CRM-STCW` runtime used for maritime training, academic operations, student lifecycle management, certifications, communications, billing, and quality processes.
+ABYSS is a SaaS platform built and hardened over more than five years to run maritime training operations end to end. It is not a narrow back-office tool and it is not a prototype. It is the working product layer behind lead capture, student lifecycle, academic operations, certifications, invoicing, communications, reporting, student self-service, and ISO/SGC quality management in one integrated system.
 
-This repository is a public technical brief. It exists to make the system scope, architecture, and engineering direction reviewable without exposing the production source tree, operational datasets, or deployment-sensitive material.
+This repository is the public technical brief for ABYSS. Its purpose is to make the scope, architecture, operational maturity, and engineering depth reviewable without exposing the production source tree, live datasets, billing artifacts, local secrets, or deployment-sensitive material.
 
 ## At a glance
 
-- Status: `active production runtime + ongoing platform extraction`
-- Current runtime: `CRM-STCW`
-- Platform direction: `ABYSS`
-- Domain: `maritime training operations`, `student lifecycle`, `certifications`, `billing`, `communications`, `quality/SGC`
-- Frontend: `React`, `Vite`
-- Backend: `Express`, `PostgreSQL`
-- Runtime support: `PM2 workers`, `JWT auth`, `RBAC`, `Nginx/VPS`, `Hostinger app delivery`
-- Publication model: `public technical brief, private source review on request`
+- Product: `ABYSS`
+- Delivery model: `operational SaaS for maritime training centers`
+- Maturity: `5+ years of development and production iteration`
+- Current live reference: `STCW España`
+- Functional breadth: `18 documented modules`
+- Stack: `React`, `Vite`, `Express`, `PostgreSQL`
+- Runtime support: `JWT auth`, `RBAC`, `workers`, `PM2`, `Nginx/VPS`
+- Review model: `public technical brief + private cleaned source review on request`
 
-## What the system does
+## What ABYSS does
 
-The current runtime is not a simple CRM. It combines multiple operational layers in one working system:
+ABYSS concentrates the operational spine of a maritime training center in one platform:
 
 - lead capture and conversion
 - student records and lifecycle management
-- course management
-- attendance and assistance tracking
-- certifications and verification flows
+- course templates, course instances, and academic operations
+- attendance, assistance, evaluation, and dossier flows
+- certifications, verification, and document-linked controls
 - invoicing and finance-related workflows
-- communications and automation queues
-- role-based internal administration
-- student portal capabilities
-- ISO/SGC-oriented quality processes
+- communications, workers, and scheduled processing
+- reporting, management visibility, and KPIs
+- student portal and self-service processes
+- ISO/SGC quality, audits, objectives, risks, and DGMM-oriented control
+
+## Why this is a SaaS, not a narrow internal app
+
+ABYSS already behaves as a full operational product for a live training organization. The public brief presents it as such because that is the delivered reality:
+
+- one coherent application shell with broad RBAC-governed module coverage
+- backend services, workers, and business flows running in production conditions
+- public and self-service flows such as portal access and verification routes
+- business-critical modules operating together instead of as disconnected tools
+- documented product evolution toward broader school and country reuse without permanent forks
+
+The right public framing is `ABYSS`. `STCW España` is the live operating reference. This brief is intentionally written around the product, its delivered capabilities, and its operational maturity.
 
 ## Current module surface
 
-The documented module map currently includes:
+The platform currently documents 18 modules with substantial operational coverage across commercial, academic, compliance, portal, finance, and quality domains:
 
 - Dashboard
 - Leads
@@ -55,16 +67,31 @@ The documented module map currently includes:
 
 See [Module Map](./docs/module-map.md).
 
+## Operational maturity
+
+One of the strongest signals in ABYSS is that it has not only breadth of modules, but also depth of production hardening:
+
+- resolved authentication incidents and routing regressions
+- resolved quiz and timeout defects affecting real student flows
+- communications workers and automation safety controls
+- invoice and certification verification flows
+- documented post-mortems and operational fixes instead of ad-hoc patching
+- quality/SGC coverage linked to real academic and documentary operations
+
+This matters because serious software is not defined only by how many screens it has. It is defined by how it behaves under load, failure, change, and recovery in a live operation.
+
+See [Production Hardening](./docs/production-hardening.md).
+
 ## Architecture summary
 
-The active runtime follows a split architecture:
+The active ABYSS runtime follows a production-oriented full-stack architecture:
 
 - `React SPA` frontend
 - `Express API` backend
 - `PostgreSQL` operational database
-- background workers for queued jobs and automations
+- workers for communications and scheduled jobs
 - JWT-based authentication and RBAC
-- VPS-oriented backend operations with a separate app delivery path
+- VPS-oriented backend operations with separate app delivery
 
 High-level runtime view:
 
@@ -75,7 +102,7 @@ flowchart TD
     B --> D["Operational Modules"]
     D --> E["Leads / Students / Courses"]
     D --> F["Certifications / Billing / Reports"]
-    D --> G["Communications / SGC / Student Portal"]
+    D --> G["Communications / Portal / SGC"]
     B --> H["Express API"]
     H --> I["PostgreSQL"]
     H --> J["Workers / Queues / Automations"]
@@ -83,54 +110,36 @@ flowchart TD
 
 See [Architecture](./docs/architecture.md).
 
-## Platform direction vs. current code reality
-
-The important distinction is this:
-
-- `CRM-STCW` is the active runtime and operating codebase.
-- `ABYSS` is the platform direction being extracted from that runtime.
-
-The platform ambition includes reusable core capabilities, tenant separation, and country-specific adaptation without forking the system. However, the current codebase should still be understood as an active runtime under extraction, not as a fully sealed multi-tenant platform.
-
-This matters because the public description should be technically honest:
-
-- there is a real production system
-- there is clear platform intent
-- there is documented architecture work toward separation
-- there is not yet a fully completed multi-tenant extraction in the current codebase
-
 ## Why this repository exists
 
-This repository exists because the real codebase is too sensitive to publish directly.
+The production working tree is too sensitive to publish directly. It mixes software layers with material that should not be made public, such as:
 
-The working tree contains operational artifacts that should not be exposed publicly, including:
+- local environment files and secrets
+- billing artifacts and generated documents
+- database files, dumps, and operational exports
+- deployment-sensitive configuration and runbooks
+- raw incident material with operational detail
 
-- database files and dumps
-- billing artifacts
-- backups
-- generated documents
-- local environment files
-- deployment-sensitive configuration
-- internal incident and production runbook material
-
-For a serious engineering review, the correct model is:
+For a serious evaluation, the correct model is:
 
 - public technical brief for orientation
-- controlled access to a private cleaned source repository when needed
+- private cleaned source repository for controlled review
+
+See [Publication Boundary](./docs/publication-boundary.md).
 
 ## Evaluation path
 
-If you are reviewing this project:
+If you are reviewing ABYSS:
 
 1. Read this README as the system brief.
 2. Review [Architecture](./docs/architecture.md).
 3. Review [Module Map](./docs/module-map.md).
-4. Review [Publication Boundary](./docs/publication-boundary.md).
-5. Treat this repository as a due-diligence layer, not as a public source release.
+4. Review [Production Hardening](./docs/production-hardening.md).
+5. Review [Publication Boundary](./docs/publication-boundary.md).
 
 ## Review access
 
-If deeper review is required, the appropriate next step is controlled access to the private cleaned repository, not broader public publication of the production tree.
+If deeper technical review is required, the next step is controlled access to the private cleaned repository rather than broader public publication of the production tree.
 
 Contact:
 
@@ -139,6 +148,6 @@ Contact:
 
 ## Notes
 
-- This repository is a technical brief and portfolio layer.
+- This repository is a technical brief and due-diligence layer for ABYSS.
 - It is not an open-source release of the production implementation.
-- See [Architecture](./docs/architecture.md), [Module Map](./docs/module-map.md), [Publication Boundary](./docs/publication-boundary.md), and [Closeout](./docs/closeout.md).
+- See [Architecture](./docs/architecture.md), [Module Map](./docs/module-map.md), [Production Hardening](./docs/production-hardening.md), [Publication Boundary](./docs/publication-boundary.md), and [Closeout](./docs/closeout.md).
