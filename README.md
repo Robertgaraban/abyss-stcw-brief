@@ -11,6 +11,7 @@ This repository is the public technical brief for ABYSS. Its purpose is to make 
 - Maturity: `5+ years of development and production iteration`
 - Current live reference: `STCW España`
 - Functional breadth: `18 documented modules`
+- User model: `internal multi-role operations + student self-service portal`
 - Stack: `React`, `Vite`, `Express`, `PostgreSQL`
 - Runtime support: `JWT auth`, `RBAC`, `workers`, `PM2`, `Nginx/VPS`
 - Review model: `public technical brief + private cleaned source review on request`
@@ -66,6 +67,29 @@ The platform currently documents 18 modules with substantial operational coverag
 - Quality and SGC
 
 See [Module Map](./docs/module-map.md).
+
+## Role model and user surfaces
+
+ABYSS is not a single-panel tool. It separates internal operations from student self-service and enforces access through role-aware UI and backend authorization.
+
+Core internal roles documented in the runtime:
+
+- `admin`
+- `sales`
+- `instructor`
+- `coordinator`
+- `support`
+- `student`
+
+In addition, some sensitive operational and quality flows are explicitly protected for specialized roles such as `compliance`, `direction`, and guarded super-admin paths.
+
+The runtime currently exposes three main visual surfaces:
+
+- `internal operations shell` for administration, sales, academic operations, finance, support, reports, and quality
+- `student portal shell` for profile, courses, quizzes, documents, certificates, invoices, messages, and support
+- `public/utility views` for login, password reset, certificate preview/verification, and invoice verification
+
+See [Role Model](./docs/role-model.md) and [Visual Surface](./docs/visual-surface.md).
 
 ## Operational maturity
 
@@ -134,8 +158,10 @@ If you are reviewing ABYSS:
 1. Read this README as the system brief.
 2. Review [Architecture](./docs/architecture.md).
 3. Review [Module Map](./docs/module-map.md).
-4. Review [Production Hardening](./docs/production-hardening.md).
-5. Review [Publication Boundary](./docs/publication-boundary.md).
+4. Review [Role Model](./docs/role-model.md).
+5. Review [Visual Surface](./docs/visual-surface.md).
+6. Review [Production Hardening](./docs/production-hardening.md).
+7. Review [Publication Boundary](./docs/publication-boundary.md).
 
 ## Review access
 
@@ -150,4 +176,4 @@ Contact:
 
 - This repository is a technical brief and due-diligence layer for ABYSS.
 - It is not an open-source release of the production implementation.
-- See [Architecture](./docs/architecture.md), [Module Map](./docs/module-map.md), [Production Hardening](./docs/production-hardening.md), [Publication Boundary](./docs/publication-boundary.md), and [Closeout](./docs/closeout.md).
+- See [Architecture](./docs/architecture.md), [Module Map](./docs/module-map.md), [Role Model](./docs/role-model.md), [Visual Surface](./docs/visual-surface.md), [Production Hardening](./docs/production-hardening.md), [Publication Boundary](./docs/publication-boundary.md), and [Closeout](./docs/closeout.md).

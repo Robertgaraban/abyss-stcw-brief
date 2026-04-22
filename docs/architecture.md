@@ -28,6 +28,16 @@ The deployed runtime joins multiple business domains inside one controlled syste
 - student portal
 - ISO/SGC quality processes
 
+## Multi-user runtime split
+
+ABYSS is also split by user surface, not only by business domain:
+
+- internal operations shell for staff roles
+- dedicated student portal for self-service access
+- utility/public views for login, reset, certificate preview/verify, and invoice verification
+
+The runtime root routes users into different visual shells depending on authentication state and role. This is a meaningful product-level distinction, not a cosmetic one.
+
 ## Core runtime flow
 
 1. Users access the app shell.
