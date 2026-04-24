@@ -9,7 +9,7 @@ This repository is the public technical brief for ABYSS. Its purpose is to make 
 - Product: `ABYSS`
 - Delivery model: `operational SaaS for maritime training centers`
 - Maturity: `5+ years of development and production iteration`
-- Current live reference: `STCW España`
+- Current live reference: `STCW EspaÃ±a`
 - Functional breadth: `18 documented modules`
 - User model: `internal multi-role operations + student self-service portal`
 - Stack: `React`, `Vite`, `Express`, `PostgreSQL`
@@ -42,7 +42,7 @@ ABYSS already behaves as a full operational product for a live training organiza
 - business-critical modules operating together instead of as disconnected tools
 - documented product evolution toward broader school and country reuse without permanent forks
 
-The right public framing is `ABYSS`. `STCW España` is the live operating reference. This brief is intentionally written around the product, its delivered capabilities, and its operational maturity.
+The right public framing is `ABYSS`. `STCW EspaÃ±a` is the live operating reference. This brief is intentionally written around the product, its delivered capabilities, and its operational maturity.
 
 ## Current module surface
 
@@ -201,6 +201,12 @@ Contact:
 
 - GitHub: [Robertgaraban](https://github.com/Robertgaraban)
 - LinkedIn: [linkedin.com/in/robertgaraban](https://www.linkedin.com/in/robertgaraban)
+
+## Código fuente
+
+**Repositorio privado:** `Robertgaraban/abyss-stcw-private` — acceso como colaborador bajo solicitud
+
+Solicitar acceso: **robertgaraban@gmail.com** — Asunto: `[Acceso repo privado] abyss-stcw-private`
 
 ## Notes
 
