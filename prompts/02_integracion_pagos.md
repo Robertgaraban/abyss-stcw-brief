@@ -7,7 +7,7 @@ Quiero diseñar y documentar una integración de plataforma de pago para ABYSS, 
 
 Contexto:
 - ABYSS ya tiene facturación, alumnos, leads, cursos, certificaciones y portal alumno.
-- La integración no debe quedarse en “cobrar”; debe impactar estado de alumno, inscripción, documentos y operación.
+- La integración no debe quedarse en "cobrar"; debe impactar estado de alumno, inscripción, documentos y operación.
 - El sistema debe contemplar trazabilidad y validación de negocio.
 
 Necesito:

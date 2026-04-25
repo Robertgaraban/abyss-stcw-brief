@@ -3,7 +3,7 @@
 ```md
 Actúa como product architect de ABYSS.
 
-Quiero fortalecer y documentar la parte de gestión de clientes dentro de ABYSS, entendiendo “cliente” en sentido amplio:
+Quiero fortalecer y documentar la parte de gestión de clientes dentro de ABYSS, entendiendo "cliente" en sentido amplio:
 - lead
 - potencial alumno
 - alumno

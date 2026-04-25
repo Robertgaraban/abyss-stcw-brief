@@ -42,6 +42,60 @@ flowchart TD
     E --> F["Executive dashboard and trend review"]
 ```
 
+## Schema summary
+
+```sql
+-- Snapshot persistence table (public description only)
+sgc_analytics_snapshots (
+  id              uuid PRIMARY KEY,
+  tenant_id       text NOT NULL,
+  snapshot_date   date NOT NULL,
+  kpi_data        jsonb NOT NULL,   -- structured KPI payload
+  materialized_at timestamptz NOT NULL
+)
+```
+
+Snapshots are keyed by `tenant_id` and `snapshot_date`, enabling both current-state queries and time-series comparisons across any period.
+
+## API contract summary
+
+```
+GET /api/v1/sgc/analytics/latest
+Authorization: Bearer <jwt>
+Required permission: sgc:read
+Returns: most recent snapshot for the authenticated tenant
+
+GET /api/v1/sgc/analytics/history?from=YYYY-MM-DD&to=YYYY-MM-DD
+Authorization: Bearer <jwt>
+Required permission: sgc:read
+Returns: array of snapshots within the date range, ordered chronologically
+```
+
+Both endpoints are read-only. Write path is handled by the materialization worker only.
+
+## Scheduled materialization
+
+The analytics job runs on a defined schedule using `node-cron`. It:
+
+1. reads the current operational SGC state from the live service layer
+2. serializes a structured KPI payload into the snapshot table
+3. tags the snapshot with `tenant_id` and `materialized_at`
+4. makes the result immediately available through the read APIs
+
+The job is supervised by PM2 alongside the main API process.
+
+## KPI categories covered
+
+The snapshot payload currently includes indicators across these quality domains:
+
+| Category | Example indicators |
+|----------|-------------------|
+| Documentary completeness | % of required documents filed per student/course |
+| Certification compliance | % of eligible students certified on schedule |
+| Satisfaction | Aggregated Likert scores from surveys |
+| Academic objectives | Progress against defined quality targets |
+| Audit trail | Open vs. closed audit items per period |
+
 ## What this proves
 
 This persistence layer shows three important things:

@@ -49,7 +49,7 @@ Tu trabajo debe producir:
    - qué construir primero para valor real de producto
 
 Reglas:
-- No rebajes ABYSS a “CRM”; descríbelo como plataforma SaaS multirol.
+- No rebajes ABYSS a "CRM"; descríbelo como plataforma SaaS multirol.
 - No mezcles ABYSS con JJR.
 - No inventes módulos si ya existe evidencia de runtime; parte de lo ya construido y extiéndelo.
 - Diferencia claramente entre:

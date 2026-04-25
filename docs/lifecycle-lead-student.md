@@ -34,13 +34,54 @@ Verified elements:
 
 The timeline currently consolidates these event classes:
 
-- `lead_created`
-- `message`
-- `enrollment`
-- `payment`
-- `certification`
+| Event type | Source domain | What it represents |
+|------------|--------------|-------------------|
+| `lead_created` | Commercial | Initial contact record created |
+| `message` | Communications | Follow-up or campaign communication sent |
+| `enrollment` | Academic | Student enrolled in a course or career plan |
+| `payment` | Invoicing | Payment record linked to enrollment or invoice |
+| `certification` | Certifications | Certificate generated or issued after completion |
 
 That means the review surface already crosses module boundaries instead of showing isolated CRUD records.
+
+## API contract summary
+
+```
+GET /api/v1/customers/:id/timeline
+
+Authorization: Bearer <jwt>
+Required permission: leads:read
+
+Response shape:
+{
+  customer_id: string,
+  events: [
+    {
+      type: "lead_created" | "message" | "enrollment" | "payment" | "certification",
+      occurred_at: ISO8601,
+      summary: string,
+      ref_id: string,
+      module: string
+    }
+  ]
+}
+```
+
+Events are returned in chronological order. The response is assembled by the backend service layer across multiple tables in a single request.
+
+## Data model behind the timeline
+
+The timeline draws from several operational tables:
+
+| Table | Contributes |
+|-------|------------|
+| `leads` | Lead creation events |
+| `messages` / `communications_log` | Communication events |
+| `enrollments` | Enrollment events |
+| `invoices` / `payments` | Payment events |
+| `certifications` | Certification completion events |
+
+The aggregation is performed server-side. The frontend component renders the result as a chronological feed, not as a set of separate module views.
 
 ## Operational meaning
 

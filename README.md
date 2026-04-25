@@ -1,21 +1,31 @@
 # ABYSS / STCW Technical Brief
 
+![Status](https://img.shields.io/badge/status-production-brightgreen)
+![Stack](https://img.shields.io/badge/stack-React%20%7C%20Express%20%7C%20PostgreSQL-blue)
+![Auth](https://img.shields.io/badge/auth-JWT%20%2B%20RBAC-orange)
+![Modules](https://img.shields.io/badge/modules-18%20documented-informational)
+![Maturity](https://img.shields.io/badge/maturity-5%2B%20years%20production-success)
+![Review](https://img.shields.io/badge/review-brief%20%2B%20private%20source%20on%20request-lightgrey)
+
 ABYSS is a SaaS platform built and hardened over more than five years to run maritime training operations end to end. It is not a narrow back-office tool and it is not a prototype. It is the working product layer behind lead capture, student lifecycle, academic operations, certifications, invoicing, communications, reporting, student self-service, and ISO/SGC quality management in one integrated system.
 
 This repository is the public technical brief for ABYSS. Its purpose is to make the scope, architecture, operational maturity, and engineering depth reviewable without exposing the production source tree, live datasets, billing artifacts, local secrets, or deployment-sensitive material.
 
 ## At a glance
 
-- Product: `ABYSS`
-- Delivery model: `operational SaaS for maritime training centers`
-- Maturity: `5+ years of development and production iteration`
-- Current live reference: `STCW EspaÃ±a`
-- Functional breadth: `18 documented modules`
-- User model: `internal multi-role operations + student self-service portal`
-- Stack: `React`, `Vite`, `Express`, `PostgreSQL`
-- Runtime support: `JWT auth`, `RBAC`, `workers`, `PM2`, `Nginx/VPS`
-- Expansion track: `tenant bootstrap`, `lead-to-student lifecycle`, `persistent SGC analytics`
-- Review model: `public technical brief + private cleaned source review on request`
+| Dimension | Detail |
+|-----------|--------|
+| Product | `ABYSS` |
+| Delivery model | Operational SaaS for maritime training centers |
+| Maturity | 5+ years of development and production iteration |
+| Live reference | `STCW España` |
+| Functional breadth | 18 documented modules |
+| User model | Internal multi-role operations + student self-service portal |
+| Frontend | `React 18`, `Vite`, `Tailwind CSS`, `Radix UI`, `Framer Motion` |
+| Backend | `Node.js`, `Express`, `PostgreSQL`, `Socket.IO` |
+| Runtime support | `JWT auth`, `RBAC`, `workers`, `PM2`, `Nginx / VPS` |
+| Expansion track | Tenant bootstrap · lead-to-student lifecycle · persistent SGC analytics |
+| Review model | Public technical brief + private cleaned source review on request |
 
 ## What ABYSS does
 
@@ -42,30 +52,32 @@ ABYSS already behaves as a full operational product for a live training organiza
 - business-critical modules operating together instead of as disconnected tools
 - documented product evolution toward broader school and country reuse without permanent forks
 
-The right public framing is `ABYSS`. `STCW EspaÃ±a` is the live operating reference. This brief is intentionally written around the product, its delivered capabilities, and its operational maturity.
+The right public framing is `ABYSS`. `STCW España` is the live operating reference. This brief is intentionally written around the product, its delivered capabilities, and its operational maturity.
 
 ## Current module surface
 
 The platform currently documents 18 modules with substantial operational coverage across commercial, academic, compliance, portal, finance, and quality domains:
 
-- Dashboard
-- Leads
-- Students
-- Courses
-- Venue Resources
-- Career Plans
-- Career Packs
-- Academic Management
-- Technical Support
-- Certifications
-- Invoicing
-- Communications
-- Tasks
-- Reports
-- Users and Team
-- Settings
-- Student Portal
-- Quality and SGC
+| # | Module | Domain |
+|---|--------|--------|
+| 00 | Dashboard | Reporting / KPIs |
+| 01 | Leads | Commercial pipeline |
+| 02 | Students | Lifecycle management |
+| 03 | Courses | Academic operations |
+| 04 | Venue Resources | Calendar / resources |
+| 05 | Career Plans | Academic planning |
+| 06 | Career Packs | Bundle management |
+| 07 | Academic Management | Attendance / evaluation |
+| 08 | Technical Support | Tickets / follow-up |
+| 09 | Certifications | Generation / verification |
+| 10 | Invoicing | Billing / payments |
+| 11 | Communications | Workers / bulk / health |
+| 12 | Tasks | Kanban / automation |
+| 13 | Reports | KPIs / scheduled reports |
+| 14 | Users and Team | RBAC / permissions |
+| 15 | Settings | Security / integrations |
+| 16 | Student Portal | Self-service / mobile-first |
+| 18 | Quality and SGC | ISO / audits / compliance |
 
 See [Module Map](./docs/module-map.md).
 
@@ -75,12 +87,14 @@ ABYSS is not a single-panel tool. It separates internal operations from student 
 
 Core internal roles documented in the runtime:
 
-- `admin`
-- `sales`
-- `instructor`
-- `coordinator`
-- `support`
-- `student`
+| Role | Primary focus |
+|------|--------------|
+| `admin` | Full system administration and configuration |
+| `sales` | Lead pipeline, conversions, and commercial follow-up |
+| `instructor` | Assigned courses, attendance, evaluations, certifications |
+| `coordinator` | Cross-module academic and resource coordination |
+| `support` | Assistance flows, tickets, and operational follow-up |
+| `student` | Self-service portal — profile, courses, certs, invoices |
 
 In addition, some sensitive operational and quality flows are explicitly protected for specialized roles such as `compliance`, `direction`, and guarded super-admin paths.
 
@@ -182,25 +196,34 @@ See [Publication Boundary](./docs/publication-boundary.md).
 If you are reviewing ABYSS:
 
 1. Read this README as the system brief.
-2. Review [Architecture](./docs/architecture.md).
-3. Review [Module Map](./docs/module-map.md).
-4. Review [Platform Expansion Status](./docs/platform-expansion-status.md).
-5. Review [Lifecycle Lead to Student](./docs/lifecycle-lead-student.md).
-6. Review [SGC Analytics Persistence](./docs/sgc-analytics-persistence.md).
-7. Review the [Prompt Library](./prompts/README.md).
-8. Review [Role Model](./docs/role-model.md).
-9. Review [Visual Surface](./docs/visual-surface.md).
-10. Review [Production Hardening](./docs/production-hardening.md).
-11. Review [Publication Boundary](./docs/publication-boundary.md).
+2. Review [Architecture](./docs/architecture.md) — stack, layers, topology, integration paths.
+3. Review [Module Map](./docs/module-map.md) — 18 documented modules with per-module evidence.
+4. Review [Platform Expansion Status](./docs/platform-expansion-status.md) — tenant bootstrap, second tenant, expansion direction.
+5. Review [Lifecycle Lead to Student](./docs/lifecycle-lead-student.md) — unified timeline from first contact to certification.
+6. Review [SGC Analytics Persistence](./docs/sgc-analytics-persistence.md) — KPI snapshots, scheduled materialization, trend APIs.
+7. Review the [Prompt Library](./prompts/README.md) — structured engineering and product thinking behind next domains.
+8. Review [Role Model](./docs/role-model.md) — multi-role RBAC with permission matrix.
+9. Review [Visual Surface](./docs/visual-surface.md) — three distinct UX shells and capture policy.
+10. Review [Production Hardening](./docs/production-hardening.md) — resolved incidents, engineering discipline, post-mortem culture.
+11. Review [Publication Boundary](./docs/publication-boundary.md) — what is public, what is private, and how to request deeper access.
 
 ## Review access
 
 If deeper technical review is required, the next step is controlled access to the private cleaned repository rather than broader public publication of the production tree.
 
-Contact:
+**Request access:**
 
+- Email: **robertgaraban@gmail.com** — Subject: `[Acceso repo privado] abyss-stcw-private`
 - GitHub: [Robertgaraban](https://github.com/Robertgaraban)
 - LinkedIn: [linkedin.com/in/robertgaraban](https://www.linkedin.com/in/robertgaraban)
+
+**What is available under controlled access:**
+
+- cleaned production source tree (frontend + backend)
+- schema and migration files
+- worker and automation code
+- sanitized deployment and operations tooling
+- selective post-mortem and incident record detail
 
 ## Código fuente
 
@@ -212,4 +235,5 @@ Solicitar acceso: **robertgaraban@gmail.com** — Asunto: `[Acceso repo privado]
 
 - This repository is a technical brief and due-diligence layer for ABYSS.
 - It is not an open-source release of the production implementation.
+- Source review is available under controlled access to the private cleaned repository.
 - See [Architecture](./docs/architecture.md), [Module Map](./docs/module-map.md), [Platform Expansion Status](./docs/platform-expansion-status.md), [Lifecycle Lead to Student](./docs/lifecycle-lead-student.md), [SGC Analytics Persistence](./docs/sgc-analytics-persistence.md), the [Prompt Library](./prompts/README.md), [Role Model](./docs/role-model.md), [Visual Surface](./docs/visual-surface.md), [Production Hardening](./docs/production-hardening.md), [Publication Boundary](./docs/publication-boundary.md), and [Closeout](./docs/closeout.md).

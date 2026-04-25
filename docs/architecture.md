@@ -211,10 +211,46 @@ As of `2026-04-22`, the runtime also shows a concrete next-layer platform direct
 - customer lifecycle aggregation already spans lead, communication, enrollment, payment, and certification events
 - the SGC module already persists analytical snapshots and exposes trend-oriented read APIs
 
-The correct technical reading is not “fully generalized multi-tenant platform already complete”. The correct reading is stronger and more useful:
+The correct technical reading is not "fully generalized multi-tenant platform already complete". The correct reading is stronger and more useful:
 
 - the live product already has the operating depth
 - the platformization work is already visible in runtime structure and supporting artifacts
 - expansion is happening on top of a functioning SaaS core, not instead of one
 
 See [Platform Expansion Status](./platform-expansion-status.md), [Lifecycle Lead to Student](./lifecycle-lead-student.md), and [SGC Analytics Persistence](./sgc-analytics-persistence.md).
+
+## Core data entities
+
+The PostgreSQL schema covers the following primary entity groups (public description only):
+
+| Entity group | Representative tables | Domain |
+|-------------|----------------------|--------|
+| Identity | `users`, `roles`, `permissions` | Auth / RBAC |
+| Commercial | `leads`, `contacts`, `communications_log` | Sales pipeline |
+| Academic | `students`, `enrollments`, `courses`, `course_instances` | Student lifecycle |
+| Resources | `instructors`, `venues`, `resources`, `schedules` | Planning |
+| Evaluation | `attendance`, `evaluations`, `quiz_attempts`, `materials` | Academic ops |
+| Certification | `certifications`, `certificate_templates` | Compliance |
+| Finance | `invoices`, `payments`, `pricing_rules` | Billing |
+| Support | `support_tickets`, `ticket_comments` | Operations |
+| Quality | `sgc_audits`, `sgc_objectives`, `sgc_risks`, `sgc_analytics_snapshots` | ISO / SGC |
+| Tasks | `tasks`, `task_assignments` | Workflow |
+| Platform | `tenants`, `tenant_configs`, `settings` | Multi-tenancy |
+| Workers | `job_queue`, `job_log`, `worker_state` | Async processing |
+
+Entities are linked through foreign keys with referential integrity enforced at the database level. Schema evolution is managed through a migrations system.
+
+## Deployment topology
+
+```
+VPS
+├── Nginx (reverse proxy, SSL termination)
+│   ├── → /           React SPA (static delivery)
+│   └── → /api        Node.js + Express API
+├── PM2
+│   ├── api process   Express app
+│   └── workers       communications, reminders, scheduled jobs
+└── PostgreSQL        operational database
+```
+
+Deploy flow includes smoke checks before traffic cutover and rollback tooling for production safety.
