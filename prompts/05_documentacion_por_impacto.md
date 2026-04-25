@@ -56,7 +56,7 @@ Necesito:
 - mensaje clave de cada pieza
 
 Reglas:
-- no asumir que “lo más complejo” es siempre “lo más importante”
+- no asumir que "lo más complejo" es siempre "lo más importante"
 - priorizar aquello que mejor demuestra amplitud, profundidad y madurez de ABYSS
 - separar claramente público vs privado
 

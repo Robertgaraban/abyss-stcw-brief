@@ -1,37 +1,52 @@
-# Prompts de Trabajo — ABYSS
+# Prompt Library — ABYSS
 
-Esta carpeta agrupa prompts reutilizables para ampliar y documentar `ABYSS` sin perder foco técnico.
+This folder contains the structured engineering and product specification prompts produced as part of the ABYSS expansion work.
 
-## Orden recomendado
+These are not marketing materials. They are working artefacts that define architecture, data contracts, integration flows, risk models, and documentation priorities for the next platform domains.
 
-1. `00_prompt_maestro_expansion_abyss.md`
-2. `01_integracion_whatsapp.md`
-3. `02_integracion_pagos.md`
-4. `03_sistema_clientes_y_operaciones.md`
-5. `04_sgc_a_datos_y_analitica.md`
-6. `05_documentacion_por_impacto.md`
+## Why this library is public
 
-## Objetivo
+Making the prompt library visible in the public brief serves one purpose: it shows that the expansion direction of ABYSS is treated as engineering and product work, not as vague roadmap language.
 
-Cubrir con criterio de producto e ingeniería:
+A reviewer looking at this library can see:
 
-- integración con `WhatsApp`
-- integración con `plataformas de pago`
-- sistema de gestión de clientes, leads, alumnos y operación comercial
-- envío de documentación de `calidad / SGC` hacia un modelo de datos analizable
-- documentación priorizada por `impacto`, `riesgo`, `visibilidad` y `valor para due diligence`
+- the level of technical rigour applied to each domain
+- the structured thinking behind actors, events, entities, and risks
+- the distinction between what is already operational and what is in specification phase
 
-## Regla de uso
+## Contents
 
-Estos prompts no están pensados para generar texto genérico. Deben producir:
+| File | Domain | Purpose |
+|------|--------|---------|
+| `00_prompt_maestro_expansion_abyss.md` | Platform-wide | Master prompt: capabilities map, integration models, phased backlog, risks, documentation plan |
+| `01_integracion_whatsapp.md` | WhatsApp | Inbound/outbound messaging, queue design, module integration, compliance |
+| `02_integracion_pagos.md` | Payments | Payment lifecycle, webhook handling, state machine, RBAC, reconciliation |
+| `03_sistema_clientes_y_operaciones.md` | Customer system | Full lifecycle from lead to alumni, domain model, ownership matrix, integration map |
+| `04_sgc_a_datos_y_analitica.md` | Quality / SGC analytics | SGC sources to analytical layer, data model, pipeline, use cases |
+| `05_documentacion_por_impacto.md` | Documentation strategy | Prioritization matrix, artifact classification, public vs. private decisions |
 
-- arquitectura concreta
-- contratos y flujos
-- riesgos
-- backlog por fases
-- decisiones de publicación pública vs privada
-- documentación accionable
+## Recommended use order
 
-## Nota
+1. `00_prompt_maestro_expansion_abyss.md` — start here for the full expansion framing
+2. `01_integracion_whatsapp.md` — if reviewing communications/messaging domain
+3. `02_integracion_pagos.md` — if reviewing payments and billing domain
+4. `03_sistema_clientes_y_operaciones.md` — if reviewing commercial and lifecycle domain
+5. `04_sgc_a_datos_y_analitica.md` — if reviewing quality and analytics domain
+6. `05_documentacion_por_impacto.md` — if reviewing documentation strategy
 
-Si una tarea mezcla varios ámbitos, empezar por `00_prompt_maestro_expansion_abyss.md` y luego ejecutar el prompt específico del área correspondiente.
+## Rules of use
+
+These prompts are designed to produce:
+
+- concrete architecture, not generic description
+- data contracts and API shapes
+- risk and compliance coverage
+- phased backlog (quick wins → operational → analytics/scale)
+- explicit public vs. private publication decisions
+- actionable documentation
+
+They are not for generating marketing copy or vague feature lists.
+
+## Status
+
+All five domain prompts and the master prompt are complete. They represent the current state of ABYSS expansion specification as of `2026-04-25`.

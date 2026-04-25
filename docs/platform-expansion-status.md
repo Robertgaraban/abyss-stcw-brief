@@ -44,6 +44,17 @@ This is the important public claim:
 
 This is a meaningful platform signal because it shows the product is no longer framed only around one fixed operating identity.
 
+### Tenant model comparison
+
+| Field | STCW España | JJR Solutions |
+|-------|------------|---------------|
+| `TENANT_ID` | `stcw-es` | `jjr-solutions` |
+| Country | Spain | Brazil |
+| Legal identity | Spanish fiscal | Brazilian fiscal |
+| Branding family | STCW España palette | JJR Solutions palette |
+| Document issuer | STCW España footer | JJR Solutions footer |
+| Language pack | Spanish | Portuguese (pending) |
+
 ### 3. Unified lifecycle surface
 
 ABYSS already exposes a customer lifecycle timeline that aggregates events across:
@@ -68,12 +79,26 @@ This is important because ABYSS quality management is already more than document
 
 ## What this means for public positioning
 
-The correct public framing is now stronger than a simple “operations app”:
+The correct public framing is now stronger than a simple "operations app":
 
 - `ABYSS` is a multi-role SaaS runtime already hardened in production
 - it now also has a visible expansion track for tenantization, lifecycle unification, and analytical persistence
 - `STCW España` remains the live operating reference
 - `JJR Solutions` demonstrates the next reusable tenant layer
+
+## Next platform domains in active specification
+
+Beyond what is already runtime-verified, the following domains have engineering-grade specifications already produced:
+
+| Domain | Status | Primary artifact |
+|--------|--------|-----------------|
+| WhatsApp integration | Specified | `prompts/01_integracion_whatsapp.md` |
+| External payments | Specified | `prompts/02_integracion_pagos.md` |
+| Customer lifecycle enhancement | Specified | `prompts/03_sistema_clientes_y_operaciones.md` |
+| SGC to data/analytics layer | Specified | `prompts/04_sgc_a_datos_y_analitica.md` |
+| Documentation by impact | Specified | `prompts/05_documentacion_por_impacto.md` |
+
+These are not vague roadmap items. Each has a structured specification with actors, events, data contracts, backlog phases, and risk assessment.
 
 ## Precision and due-diligence limits
 

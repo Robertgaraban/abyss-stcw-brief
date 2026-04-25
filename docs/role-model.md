@@ -31,6 +31,33 @@ Examples documented in the runtime include:
 
 This is important because it shows ABYSS is not only role-labelled in the UI. It also enforces differentiated access in backend routes and critical controls.
 
+## Permission matrix by module
+
+The table below shows representative access coverage per role. `full` = read + write + delete. `read` = read-only. `own` = own records only. `—` = no access.
+
+| Module | admin | sales | instructor | coordinator | support | student |
+|--------|-------|-------|------------|-------------|---------|---------|
+| Dashboard | full | read | read | read | read | own |
+| Leads | full | full | — | read | read | — |
+| Students | full | full | read | full | read | — |
+| Courses | full | read | read | full | read | — |
+| Venue Resources | full | — | read | full | — | — |
+| Career Plans | full | read | read | full | — | own |
+| Career Packs | full | read | — | read | — | — |
+| Academic Management | full | — | full | full | read | own |
+| Technical Support | full | read | read | read | full | own |
+| Certifications | full | — | full | full | — | own |
+| Invoicing | full | full | — | read | — | own |
+| Communications | full | full | — | read | read | — |
+| Tasks | full | full | read | full | full | — |
+| Reports | full | read | read | full | read | — |
+| Users and Team | full | — | — | — | — | — |
+| Settings | full | — | — | — | — | — |
+| Student Portal | — | — | — | — | — | full |
+| Quality and SGC | full | — | — | read | — | — |
+
+> Actual enforcement is at the backend `requirePermission(module, action)` level. The table above reflects representative access patterns from the documented runtime.
+
 ## UI split by user type
 
 ABYSS currently separates user experience at shell level:
